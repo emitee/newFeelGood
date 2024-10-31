@@ -1,11 +1,11 @@
 import database from "./conn.js";
 
-export async function addFeed(id, foto, comentario) {
+export async function addFeed(id, comentario) {
     let comando = `
-        INSERT INTO tb_feed_backs (id_cliente, nm_foto, ds_comentario)
-            VALUES(?, ?, ?);
+        INSERT INTO tb_feed_backs (id_cliente, ds_comentario)
+            VALUES(?, ?);
     `;
-    let registro = await database.query(comando, [id, foto, comentario]);
+    let registro = await database.query(comando, [id, comentario]);
     let fim = registro[0];
     return fim.insertId;
 }

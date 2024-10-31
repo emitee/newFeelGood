@@ -110,7 +110,7 @@ export default function TelaCliente() {
    
     async function addFeed() {
         try {
-            await axios.post(`http://localhost:8080/addFeed/${idCliente}/${nameImg}/${comentario}`);
+            await axios.post(`http://localhost:8080/addFeed/${idCliente}/${comentario}`);
             toast.success('Comenatario adicionado');
             setComentario('')
         } 
