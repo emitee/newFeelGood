@@ -123,4 +123,11 @@ endpoint.get('/findImgCliente/:id', async (req, resp) => {
   
 });
 
+// testando acesso de imagens dentro da API
+
+endpoint.get('/img/:name', (req, resp) => {
+  const { name } = req.params;
+  resp.send({ url: `http://localhost:8080/imgs/${name}` });
+});
+
 

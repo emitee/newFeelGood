@@ -15,7 +15,7 @@ export default function Sobre() {
         const api = await axios.get('http://localhost:8080/aparecerFeed');
         let values = api.data;
         setArray(values)
-        console.log(array)
+        console.log(array);
     }
 
     useEffect(() => {
@@ -115,8 +115,9 @@ export default function Sobre() {
                         {array.map(item =>
                     
                             <ComentarioFeed
-                                nome={item.nm_cliente}
-                                comentario={item.ds_comentario}
+                                nome={item.nome_cliente}
+                                comentario={item.comentario}
+                                foto={item.nome_foto}
                             />
                
                         )} 

@@ -3,9 +3,9 @@ import fundo from '../../assets/images/fundoADM.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginADM } from '../../api/admApi';
-import storage from 'local-storage';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 export default function Telalogin() {
     const [email, setEmail] = useState('')
@@ -16,8 +16,10 @@ export default function Telalogin() {
     async function logar() {
         try {
             
-          const infos = await loginADM(email, senha);
-          storage('adm-logado', infos); 
+          const infos = await axios.post('http://localhost:8080/loginADM', 
+            { email: email, senha: senha });
+          
+          localStorage.setItem('adm-logado', JSON.stringify(infos.data)); 
           navigate('/addimovel');
              
         } 

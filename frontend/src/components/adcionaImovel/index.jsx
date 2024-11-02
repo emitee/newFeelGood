@@ -73,10 +73,6 @@ export default function NovoCard({ setExibir }) {
                 }
             });
     
-    
-    
-            
-    
             let nomeCapa = a.data.fl
             let nomeGaleria = b.data.fl
             let nomeGaleria2 = c.data.fl
@@ -183,7 +179,7 @@ export default function NovoCard({ setExibir }) {
 
     useEffect(() => {
         testEx2()
-        select()}, []);
+        select()});
         
     return (
         <div className="addimovel">

@@ -1,11 +1,29 @@
 
+import axios from 'axios';
 import './index.scss';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
  const ItemCard = ({ nome, status, localizacao, comodos, vagas, capa, id }) => {
+
+
+    const [img, setImg] = useState('');
+
+    async function findCapa() {
+        const x = await axios.get(`http://localhost:8080/img/${capa}`);
+        setImg(x.data.url);
+        console.log(x);
+    }
+
+    useEffect(() => {
+        findCapa();
+    }, []);
+
+
+
     return(
         <div className="cardImovel">
-            <img className='intro' src={`/imgs/${capa}`} alt="predios" />
+            <img className='intro' src={`${img}`} alt="predios" />
         <h1 id='titulo'>{nome}</h1>
 
         <div className="info1">

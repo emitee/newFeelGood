@@ -19,6 +19,7 @@ api.use(admController);
 api.use(gestaImoveisController);
 api.use(corretorController);
 api.use(feedBacksController);
+api.use('/imgs', express.static('public/img'));
 
 
 api.listen(process.env.PORT, () => console.log('API!'));
